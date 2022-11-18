@@ -1,0 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap');
+
+.label{
+    -fx-font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.textfield{
+    -fx-font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.button{
+    -fx-background-color: #0D6D1E;
+}

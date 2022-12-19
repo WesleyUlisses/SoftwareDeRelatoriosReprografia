@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" styleClass="back" stylesheets="@busca.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.BuscaController">
+   <top>
+      <VBox prefHeight="155.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="66.0" prefWidth="1000.0" styleClass="header" stylesheets="@tela8.css">
+               <children>
+                  <Button fx:id="menubutton" mnemonicParsing="false" onAction="#voltarMenu" styleClass="header" stylesheets="@tela8.css">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/iflogo2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <TextField fx:id="pesquisatext" opacity="0.51" prefHeight="25.0" prefWidth="374.0" promptText="Pesquisar">
+                     <HBox.margin>
+                        <Insets left="250.0" top="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="pesquisa" mnemonicParsing="false" onAction="#getPesquisa" prefHeight="24.0" prefWidth="19.0" styleClass="header" stylesheets="@tela8.css">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/buscalogo.png" />
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="0.75" />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="exitbutton" mnemonicParsing="false" onAction="#exitapp" prefHeight="39.0" prefWidth="38.0" styleClass="header" stylesheets="@tela8.css">
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/exitbutton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="245.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <Label prefHeight="41.0" prefWidth="501.0" styleClass="labelrelatorioC" stylesheets="@tela8.css" text="Relatório de Cotas" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="29.0" prefWidth="301.0" styleClass="labelrelatorio" stylesheets="@tela8.css" text="BUSCAR">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/buscalogo3.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <HBox prefHeight="362.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="345.0" prefWidth="335.0">
+               <children>
+                  <Button fx:id="professor" contentDisplay="TOP" mnemonicParsing="false" onAction="#irprofessor" prefHeight="189.0" prefWidth="200.0" styleClass="labelrelatorio" stylesheets="@tela8.css" text="Professor">
+                     <graphic>
+                        <ImageView fitHeight="139.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/RProfessor.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="65.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="345.0" prefWidth="339.0">
+               <children>
+                  <Button fx:id="aluno" contentDisplay="TOP" mnemonicParsing="false" onAction="#iraluno" prefHeight="189.0" prefWidth="200.0" styleClass="labelrelatorio" stylesheets="@tela8.css" text="Aluno">
+                     <graphic>
+                        <ImageView fitHeight="130.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/RAluno.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="65.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="345.0" prefWidth="334.0">
+               <children>
+                  <Button fx:id="servidor" contentDisplay="TOP" mnemonicParsing="false" onAction="#irservidor" prefHeight="189.0" prefWidth="200.0" styleClass="labelrelatorio" stylesheets="@tela8.css" text="Servidor">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="130.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/RServidor.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="65.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

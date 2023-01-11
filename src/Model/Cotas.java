@@ -34,6 +34,9 @@ public class Cotas {
             
             //Calculo de cotas para professor
         }
+       else{
+          //Calculo de cotas para servidor ou aluno
+       }
     }
     
     public int getCotasTotaisDoIf()

@@ -1,8 +1,8 @@
 package Control;
 
 import Conection.Conexao;
+import Model.Usuario;
 import Dao.UsuarioDAO;
-
 import Model.Pessoa;
 import Model.Usuario;
 import javafx.application.Application;
@@ -37,6 +37,7 @@ public class Main extends Application {
      */
     public static void main(String[] args) throws Exception 
     {
+       
         launch(args);
     }
     

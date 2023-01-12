@@ -22,7 +22,7 @@
                      <graphic>
                         <ImageView fitHeight="47.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@iflogo2.png" />
+                              <Image url="@../Icons/iflogo2.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -39,7 +39,7 @@
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@lupa.png" />
+                              <Image url="@../Icons/lupa.png" />
                            </image>
                            <effect>
                               <ColorAdjust brightness="0.83" />
@@ -51,7 +51,7 @@
                      <graphic>
                         <ImageView fitHeight="33.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@exitbutton.png" />
+                              <Image url="@../Icons/exitbutton.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -87,7 +87,7 @@
                      <graphic>
                         <ImageView fitHeight="90.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@relatoriologo2.png" />
+                              <Image url="@../Icons/relatoriologo2.png" />
                            </image>
                         </ImageView>
                      </graphic></Button>
@@ -102,7 +102,7 @@
                      <graphic>
                         <ImageView fitHeight="91.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@cadastrologo.png" />
+                              <Image url="@../Icons/cadastrologo.png" />
                            </image>
                         </ImageView>
                      </graphic></Button>
@@ -117,7 +117,7 @@
                      <graphic>
                         <ImageView fitHeight="84.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@buscalogo2.png" />
+                              <Image url="@../Icons/buscalogo2.png" />
                            </image>
                         </ImageView>
                      </graphic></Button>

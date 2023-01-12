@@ -13,13 +13,13 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@TELAS%20IDEIA%202_ImgID1.png" />
+            <Image url="@../Icons/TELAS%20IDEIA%202_ImgID1.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="257.0" layoutX="149.0" layoutY="42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="303.0" />
       <ImageView fitHeight="51.0" fitWidth="40.0" layoutX="161.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@iflogo.png" />
+            <Image url="@../Icons/iflogo.png" />
          </image>
       </ImageView>
       <Label layoutX="161.0" layoutY="140.0" stylesheets="@loginsenha.css" text="Senha">
@@ -32,6 +32,6 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </PasswordField>
-      <Button fx:id="entrarButton" layoutX="388.0" layoutY="242.0" mnemonicParsing="false" onAction="#entrarSenha" stylesheets="@../View/loginsenha.css" text="Entrar" textFill="WHITE" />
+      <Button fx:id="entrarButton" layoutX="388.0" layoutY="242.0" mnemonicParsing="false" onAction="#entrarSenha" stylesheets="@loginsenha.css" text="Entrar" textFill="WHITE" />
    </children>
 </AnchorPane>

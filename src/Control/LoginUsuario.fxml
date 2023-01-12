@@ -14,13 +14,13 @@
    <children>
       <ImageView fitHeight="398.0" fitWidth="606.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@TELAS%20IDEIA%202_ImgID1.png" />
+            <Image url="@../Icons/TELAS%20IDEIA%202_ImgID1.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="257.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="303.0" />
       <ImageView fitHeight="54.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@iflogo.png" />
+            <Image url="@../Icons/iflogo.png" />
          </image>
          <StackPane.margin>
             <Insets bottom="175.0" right="250.0" />
@@ -42,7 +42,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <Button fx:id="proximoButton" mnemonicParsing="false" onAction="#irProxima" stylesheets="@../View/login.css" text="Próximo" textFill="WHITE">
+      <Button fx:id="proximoButton" mnemonicParsing="false" onAction="#irProxima" stylesheets="@login.css" text="Próximo" textFill="WHITE">
          <StackPane.margin>
             <Insets left="200.0" top="150.0" />
          </StackPane.margin>

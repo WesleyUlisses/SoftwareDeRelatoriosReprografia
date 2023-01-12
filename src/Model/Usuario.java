@@ -14,8 +14,7 @@ public class Usuario <Generics> extends Pessoa {
     private String senha;
     private boolean usuarioBloqueado = false;
     private int tentativasLogin = 0;
-    private boolean secaoAtiva;
-    private int idUsuario = 0;
+    private int idUsuario;
 
     public Usuario(){
         this.setNome(null);

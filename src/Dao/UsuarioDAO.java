@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -29,7 +28,7 @@ public class UsuarioDAO {
         else{
             
             try {
-                String sql = "INSERT INTO Usuario (login, senha,tentativasLogin, bloquado)VALUES (?,?,?,?)";
+                String sql = "INSERT INTO Usuario (login, senha,tentativasLogin, bloqueado)VALUES (?,?,?,?)";
 
                 PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament 
                 
@@ -37,6 +36,7 @@ public class UsuarioDAO {
                 ps.setString(2, user.getSenha());
                 ps.setInt(3, user.getTentativasLogin());
                 ps.setBoolean(4, user.verificaUsuarioBloqueado());
+                
                 ps.executeUpdate();                                       //Executa sql
                 ps.close();
                 
@@ -59,7 +59,7 @@ public class UsuarioDAO {
 
         
         try {
-            String sql = "UPDATE Usuario SET bloquado=?"
+            String sql = "UPDATE Usuario SET bloqueado=?"
                     + "  WHERE idusuario=?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);   //objeto Stament 
@@ -118,7 +118,7 @@ public class UsuarioDAO {
     public boolean verificaUsuarioBloqueado(Usuario user) {
 
         try {
-            String sql = "SELECT * FROM Usuario WHERE bloquado= ?";
+            String sql = "SELECT * FROM Usuario WHERE bloqueado= ?";
             PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
             
             ps.setBoolean(1, user.verificaUsuarioBloqueado());                   //Paramentros          
@@ -128,7 +128,7 @@ public class UsuarioDAO {
             if (rs.next())
             {   
                 Usuario aux = new Usuario();
-                aux.setBloquear(rs.getBoolean("bloquado"));
+                aux.setBloquear(rs.getBoolean("bloqueado"));
                 
                 if(user.verificaUsuarioBloqueado());{
                     JOptionPane.showMessageDialog(null,"Usuario Bloqueado");
@@ -181,7 +181,7 @@ public class UsuarioDAO {
     public void Alterar(Usuario user) {
 
         try {
-            String sql = "UPDATE usuario SET  login=?, senha=?, tentativasLogin=?, bloquado=? WHERE idusuario=?";
+            String sql = "UPDATE Usuario SET  login=?, senha=?, tentativasLogin=?, bloqueado=? WHERE idusuario=?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);   //objeto Stament 
 
@@ -305,7 +305,7 @@ public class UsuarioDAO {
                 Usuario usuario = new Usuario();
                 usuario.setLogin(rs.getString("login"));
                 usuario.setSenha(rs.getString("senha"));
-                usuario.setBloquear(rs.getBoolean("bloquado"));
+                usuario.setBloquear(rs.getBoolean("bloqueado"));
                 usuario.setId(rs.getInt("idusuario"));
                 /*
                 usuario.setOcupacao(rs.getString("ocupacao"));

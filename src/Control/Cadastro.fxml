@@ -39,7 +39,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@cicons/adastrarLogo.png" />
+                        <Image url="@Icons/cadastrologo.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -112,7 +112,7 @@
                      <graphic>
                         <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/iflogo2.png" />
+                              <Image url="@Icons/iflogo2.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -127,7 +127,7 @@
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/buscalogo.png" />
+                              <Image url="@Icons/buscalogo.png" />
                            </image>
                            <effect>
                               <ColorAdjust brightness="0.66" />
@@ -144,7 +144,7 @@
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/exitbutton.png" />
+                              <Image url="@Icons/exitbutton.png" />
                            </image>
                         </ImageView>
                      </graphic>

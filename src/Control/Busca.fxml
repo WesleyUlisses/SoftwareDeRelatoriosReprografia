@@ -22,7 +22,7 @@
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/iflogo2.png" />
+                              <Image url="@Icons/iflogo2.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -39,7 +39,7 @@
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/buscalogo.png" />
+                              <Image url="@Icons/buscalogo.png" />
                            </image>
                            <effect>
                               <ColorAdjust brightness="0.75" />
@@ -54,7 +54,7 @@
                      <graphic>
                         <ImageView fitHeight="44.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/exitbutton.png" />
+                              <Image url="Icons/exitbutton.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -79,7 +79,7 @@
                <graphic>
                   <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/buscalogo3.png" />
+                        <Image url="Icons/buscalogo3.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -99,7 +99,7 @@
                      <graphic>
                         <ImageView fitHeight="139.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/RProfessor.png" />
+                              <Image url="@Icons/RProfessor.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -118,7 +118,7 @@
                      <graphic>
                         <ImageView fitHeight="130.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/RAluno.png" />
+                              <Image url="@Icons/RAluno.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -140,7 +140,7 @@
                      <graphic>
                         <ImageView fitHeight="130.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/RServidor.png" />
+                              <Image url="@Icons/RServidor.png" />
                            </image>
                         </ImageView>
                      </graphic>

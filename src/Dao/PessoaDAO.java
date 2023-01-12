@@ -20,7 +20,7 @@ public class PessoaDAO {
     public void Cadastrar(Pessoa pessoa) {
         try {
             String sql = "INSERT INTO Pessoa (nome, matricula, ocupacao, cotas) "
-                    + "  VALUES (?, null, ?, null)";
+                    + "  VALUES (?,?,?,?)";
 
             PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament 
 

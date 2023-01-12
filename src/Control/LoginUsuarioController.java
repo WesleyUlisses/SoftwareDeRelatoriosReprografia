@@ -29,6 +29,8 @@ import javax.swing.JOptionPane;
  *
  * @author mafxr
  */
+
+
 public class LoginUsuarioController implements Initializable {
     
     

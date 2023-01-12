@@ -27,7 +27,7 @@ public class  Pessoa {
         //New Pessoa are a professor
         if(ocupacao.equals("Professor"))
         {
-            this.cota = new Cotas(ocupacao);            
+            this.cota = new Cotas();            
         }
         else
         {

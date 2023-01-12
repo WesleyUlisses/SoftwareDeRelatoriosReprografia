@@ -1,38 +1,33 @@
 
 package Model;
 
+import Dao.CotasDAO;
 import javax.swing.JOptionPane;
+import java.util.Date;
 
-/*
-70  Professores = 75 % = 26 250
-Alunos e Servidores = 25 % = 8 750
-
-Valor ano.
-
-IF cota mensal = x
-Quantidade de professores variável;
-
-professores = ( 75 % ) / 70 
-alunos e servidores = ( 25 % ) / 400
-
-*/
-public class Cotas {
+public class Cotas <Pessoa> {
    
     private int cotasTotaisDoIf;
-    private int cotasIndividual;
+    private double cotasIndividual;
     private int cotasUsadas;
-    private int cotasRestantes;
+    private String impressoesData; //
+    private double cotasRestantes;
     
     public Cotas()
     {
         //Calculo de cotas individual
     }
     
-    public Cotas(String ocupacao)
+    public Cotas(String ocupacao, CotasDAO idividuais, CotasDAO totais)//CotasDAO individuais retorna a quantidade de cotas individuais
     {
         if(ocupacao.equals("Professor")){
             
-            //Calculo de cotas para professor
+        }
+        else if(ocupacao.equals("Estudante")){
+            
+        }
+        else{
+            
         }
     }
     
@@ -46,7 +41,7 @@ public class Cotas {
         this.cotasTotaisDoIf = cotasTotaisDoIf;
     }
 
-    public int getCotasIndividual()
+    public double getCotasIndividual()
     {
         return cotasIndividual;
     }
@@ -66,7 +61,7 @@ public class Cotas {
         this.cotasUsadas += cotasUsadas;
     }
 
-    public int getCotasRestantes()
+    public double getCotasRestantes()
     {
         return cotasRestantes;
     }

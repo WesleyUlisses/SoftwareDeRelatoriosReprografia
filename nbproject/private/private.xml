@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal/src/Conection/Conexao.java</file>
+            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal_1/src/Control/Cadastro.fxml</file>
+            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal_1/src/Control/MenuAdmController.java</file>
+            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal_1/src/Control/CadastroAdm.fxml</file>
+            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal_1/src/Control/CadastroAdmController.java</file>
+            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal_1/src/Control/CadastroController.java</file>
         </group>
     </open-files>
 </project-private>

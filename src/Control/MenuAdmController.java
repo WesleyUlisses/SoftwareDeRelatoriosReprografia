@@ -17,19 +17,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
  *
  * @author mafxr
  */
-public class CadastroController implements Initializable {
+public class MenuAdmController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -37,45 +34,25 @@ public class CadastroController implements Initializable {
     
     @FXML
     private BorderPane BorderPane;
-    
-    @FXML
-    private Button cadastrobutton;
 
     @FXML
-    private Button exitbutton;
+    private Button RemoverButton;
 
     @FXML
-    private Button menubutton;
-    
-    @FXML
-    private TextField matricula;
+    private Button cadastrarButton;
 
     @FXML
-    private TextField nome;
+    private Button editarButton;
 
     @FXML
-    private ChoiceBox<String> ocupacao;
+    private Button exitButton;
 
     @FXML
-    private Button searchbutton;
+    private Button irPesquisa;
 
-    private String[] ocupacoes = {"Aluno", "Professor", "Servidor"};
     @FXML
-    void cadastrar(ActionEvent event) {
-        String getOcupacao = ocupacao.getValue();
-        String getNome = nome.getText();
-        String getMatricula = matricula.getText();
-        
-        System.out.println(getOcupacao);
-        System.out.println(getNome);
-        System.out.println(getMatricula);
-    }
-    
-    @FXML
-    void pesquisar(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("SearchBar.fxml"));
-        
+    void editar(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Editar.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -83,7 +60,7 @@ public class CadastroController implements Initializable {
     }
 
     @FXML
-    void saida(ActionEvent event) {
+    void exitApp(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Fechar Aplicação");
         alert.setContentText("Tem certeza que deseja fechar o App?");
@@ -93,21 +70,40 @@ public class CadastroController implements Initializable {
             stage.close();
         }
     }
-    
+
     @FXML
-    void voltamenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MenuAdm.fxml"));
+    void irCadastrar(ActionEvent event) throws IOException {
+        
+        //JOptionPane.showMessageDialog(null,"To apertando");
+        
+        Parent root = FXMLLoader.load(getClass().getResource("CadastroAdm.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    void pesquisar(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("SearchBar.fxml"));
+        
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void remover(ActionEvent event) {
+
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ocupacao.getItems().addAll(ocupacoes);
-    }   
+        // TODO
+    }    
     
 }

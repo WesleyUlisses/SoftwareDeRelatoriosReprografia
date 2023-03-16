@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 
 public class CotasDAO {
-    private Connection conexao;
+    /*private Connection conexao;
 
     public CotasDAO() {
         this.conexao = new Conexao().getConexao();
@@ -105,9 +105,7 @@ public class CotasDAO {
             }
     }
 
-    /**
-     * Exclui um produto do banco de dados
-     */
+    
     public void Excluir(Cotas cotas) {
 
         try {
@@ -122,4 +120,6 @@ public class CotasDAO {
             e.printStackTrace();
         }
     }
+    
+    */
 }

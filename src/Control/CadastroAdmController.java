@@ -17,9 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -29,7 +26,7 @@ import javafx.stage.Stage;
  *
  * @author mafxr
  */
-public class CadastroController implements Initializable {
+public class CadastroAdmController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -37,7 +34,7 @@ public class CadastroController implements Initializable {
     
     @FXML
     private BorderPane BorderPane;
-    
+
     @FXML
     private Button cadastrobutton;
 
@@ -45,35 +42,33 @@ public class CadastroController implements Initializable {
     private Button exitbutton;
 
     @FXML
-    private Button menubutton;
-    
-    @FXML
     private TextField matricula;
+
+    @FXML
+    private Button menubutton;
 
     @FXML
     private TextField nome;
 
     @FXML
-    private ChoiceBox<String> ocupacao;
-
-    @FXML
     private Button searchbutton;
 
-    private String[] ocupacoes = {"Aluno", "Professor", "Servidor"};
     @FXML
     void cadastrar(ActionEvent event) {
-        String getOcupacao = ocupacao.getValue();
         String getNome = nome.getText();
         String getMatricula = matricula.getText();
-        
-        System.out.println(getOcupacao);
+       
         System.out.println(getNome);
         System.out.println(getMatricula);
     }
-    
+
+    @FXML
+    void login(ActionEvent event) {
+        
+    }
+
     @FXML
     void pesquisar(ActionEvent event) throws IOException {
-
         Parent root = FXMLLoader.load(getClass().getResource("SearchBar.fxml"));
         
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -93,7 +88,12 @@ public class CadastroController implements Initializable {
             stage.close();
         }
     }
-    
+
+    @FXML
+    void senha(ActionEvent event) {
+
+    }
+
     @FXML
     void voltamenu(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MenuAdm.fxml"));
@@ -102,12 +102,10 @@ public class CadastroController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        ocupacao.getItems().addAll(ocupacoes);
-    }   
-    
+    public void initialize(URL location, ResourceBundle resources) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

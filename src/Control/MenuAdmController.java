@@ -4,6 +4,7 @@
  */
 package Control;
 
+import Control.Cadastro;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -74,13 +75,14 @@ public class MenuAdmController implements Initializable {
     @FXML
     void irCadastrar(ActionEvent event) throws IOException {
         
-        //JOptionPane.showMessageDialog(null,"To apertando");
-        
+        Cadastro x = new Cadastro();
+        x.setVisible(true);
+ /*
         Parent root = FXMLLoader.load(getClass().getResource("CadastroAdm.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();
+        stage.show();*/
     }
 
     @FXML

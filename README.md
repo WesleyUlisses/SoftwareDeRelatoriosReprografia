@@ -14,7 +14,7 @@ Este projeto foi desenvolvido utilizando Java e JavaFX para fornecer uma soluç�
   O banco de dados utilizado neste projeto é o MySQL. Você pode importar o arquivo controle_reprografia.sql, localizado na pasta database, para criar a estrutura do    banco de dados e suas tabelas.
 
 # Configuração do Banco de Dados
-Antes de executar a aplicação, você precisará configurar o acesso ao banco de dados. Edite o arquivo application.properties localizado em src/conection/Conexao.java/ e altere as seguintes linhas com suas informações de conexão ao banco de dados:
+Antes de executar a aplicação, você precisará configurar o acesso ao banco de dados. Edite o arquivo Conexao.java localizado em src/conection/Conexao.java/ e altere as seguintes linhas com suas informações de conexão ao banco de dados:
 
             String url = "jdbc:mysql://localhost:3306/datacenter";
             String usuario = "root"; // Insira seu usuario local

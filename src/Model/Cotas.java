@@ -29,6 +29,9 @@ public class Cotas <Pessoa> {
         else{
             
         }
+       else{
+          //Calculo de cotas para servidor ou aluno
+       }
     }
     
     public int getCotasTotaisDoIf()

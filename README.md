@@ -1,5 +1,8 @@
-# Controle de Reprografia
-Este projeto foi desenvolvido utilizando Java e JavaFX para fornecer uma solução de controle de reprografia para o Instituto Federal Baiano de Educação, Ciência e Tecnologia - Campus Itapetinga.
+# Controle de Reprografia 
+
+Este projeto foi desenvolvido utilizando Java e JavaFX para fornecer uma solução de controle de reprografia para o Instituto Federal Baiano de Educação, Ciência e Tecnologia - Campus Itapetinga. 
+
+![image](https://user-images.githubusercontent.com/90068576/227588719-69c131a7-5872-4f8a-82ca-2799607761d5.png)
 
 # Funcionalidades
   * Cadastro de Usuarios

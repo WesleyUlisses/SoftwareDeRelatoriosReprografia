@@ -32,5 +32,13 @@ Para executar o projeto, basta clonar o repositório e importá-lo em sua IDE Ja
 # Contribuições
 Contribuições são sempre bem-vindas! Sinta-se à vontade para abrir um pull request com suas alterações ou sugerir melhorias através das issues.
 
-# Licença
-Este projeto está licenciado sob a licença MIT - consulte o arquivo LICENSE.md para obter mais detalhes.
+# Créditos
+Este projeto foi desenvolvido como um trabalho acadêmico pelos seguintes autores:
+
+Maria Fernanda Fernandes | Desgner e FrontEnd ([LinkedIn](https://www.linkedin.com/in/maria-fernanda-fernandes-0a8aa6250/) | [GitHub](https://github.com/mafxrnandxs))
+Raquel Ribeiro | Desgner e FrontEnd ([LinkedIn](https://www.linkedin.com/in/raquel-ribeiro-553b25260/) | [GitHub](https://github.com/ribeiroraquel))
+Lucas de Oliveira | Full Stack Developer ([LinkedIn](https://www.linkedin.com/in/lucas-de-oliveira-b39b41206/) | [GitHub](https://github.com/kollhall))
+Ayrthon Lopes | BackEnd Developer ([LinkedIn](https://www.linkedin.com/in/ayrton-lopes/) | [GitHub](https://github.com/Ayrton54))
+Wesley Ulisses | Engenheiro de Software ([LinkedIn](https://www.linkedin.com/in/wesley-ulisses/) | [GitHub](https://github.com/WesleyUlisses))
+
+Agradecimentos especiais ao professor Francisco Hélio pela orientação e suporte durante o desenvolvimento do projeto.

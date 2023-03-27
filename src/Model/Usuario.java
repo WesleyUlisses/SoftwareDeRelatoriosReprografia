@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Random;
 import java.util.Stack;
 
+
 import javax.swing.JOptionPane;
 
 
@@ -15,7 +16,7 @@ public class Usuario <Generics> extends Pessoa {
     private boolean usuarioBloqueado = false;
     private int tentativasLogin = 0;
     private int idUsuario;
-
+    private boolean usuarioADM = false;
     public Usuario(){
         this.setNome(null);
         this.setMatricula(null);
@@ -34,7 +35,14 @@ public class Usuario <Generics> extends Pessoa {
 
     }
     
-    
+    public void setUsuarioADM(boolean a){
+        this.usuarioADM = a;
+    }
+
+    public boolean getUsuarioADM(){
+        return this.usuarioADM;
+    }
+
     public void setId(int x){
         idUsuario = x;
     }

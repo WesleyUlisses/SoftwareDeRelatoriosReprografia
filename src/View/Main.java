@@ -1,4 +1,4 @@
-package Control;
+package View;
 
 import Conection.Conexao;
 import Model.Usuario;

@@ -1,4 +1,4 @@
-package Control;
+package View;
 
 import Dao.UsuarioDAO;
 import Model.Pessoa;

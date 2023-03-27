@@ -1,4 +1,4 @@
-package Control;
+package View;
 
 import Model.Pessoa;
 import java.net.URL;

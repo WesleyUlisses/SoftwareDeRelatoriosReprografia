@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package Control;
+package View;
 
-import Control.Cadastro;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,16 +17,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
  *
  * @author mafxr
  */
-public class MenuAdmController implements Initializable {
+public class BuscaController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -37,31 +36,29 @@ public class MenuAdmController implements Initializable {
     private BorderPane BorderPane;
 
     @FXML
-    private Button RemoverButton;
+    private Button aluno;
 
     @FXML
-    private Button cadastrarButton;
+    private Button exitbutton;
 
     @FXML
-    private Button editarButton;
+    private Button menubutton;
 
     @FXML
-    private Button exitButton;
+    private Button pesquisa;
 
     @FXML
-    private Button irPesquisa;
+    private TextField pesquisatext;
 
     @FXML
-    void editar(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Editar.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    private Button professor;
 
     @FXML
-    void exitApp(ActionEvent event) {
+    private Button servidor;
+
+    @FXML
+    void exitapp(ActionEvent event) {
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Fechar Aplicação");
         alert.setContentText("Tem certeza que deseja fechar o App?");
@@ -73,20 +70,8 @@ public class MenuAdmController implements Initializable {
     }
 
     @FXML
-    void irCadastrar(ActionEvent event) throws IOException {
-        
-        Cadastro x = new Cadastro();
-        x.setVisible(true);
- /*
-        Parent root = FXMLLoader.load(getClass().getResource("CadastroAdm.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();*/
-    }
+    void getPesquisa(ActionEvent event) throws IOException {
 
-    @FXML
-    void pesquisar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SearchBar.fxml"));
         
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -96,10 +81,45 @@ public class MenuAdmController implements Initializable {
     }
 
     @FXML
-    void remover(ActionEvent event) {
-
+    void iraluno(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(".fxml"));
+        
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
-    
+
+    @FXML
+    void irprofessor(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(".fxml"));
+        
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void irservidor(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(".fxml"));
+        
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void voltarMenu(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     /**
      * Initializes the controller class.
      */

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package Control;
+package View;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,8 +17,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -27,45 +29,53 @@ import javafx.stage.Stage;
  *
  * @author mafxr
  */
-public class RelatorioController implements Initializable {
+public class CadastroController implements Initializable {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
     
     @FXML
-    private BorderPane borderpane;
+    private BorderPane BorderPane;
     
     @FXML
-    private Button exit;
+    private Button cadastrobutton;
+
+    @FXML
+    private Button exitbutton;
 
     @FXML
     private Button menubutton;
-
-    @FXML
-    private Button pesquisa;
-
-    @FXML
-    private ImageView pesquisar;
-
-    @FXML
-    private TextField ptextfild;
-
-    @FXML
-    private Button rDiario;
-
-    @FXML
-    private Button rInstantaneo;
-
-    @FXML
-    private Button rMensal;
-
-    @FXML
-    private Button rSemanal;
     
     @FXML
-    void backmenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+    private TextField matricula;
+
+    @FXML
+    private TextField nome;
+
+    @FXML
+    private ChoiceBox<String> ocupacao;
+
+    @FXML
+    private Button searchbutton;
+
+    private String[] ocupacoes = {"Aluno", "Professor", "Servidor"};
+    @FXML
+    void cadastrar(ActionEvent event) {
+        String getOcupacao = ocupacao.getValue();
+        String getNome = nome.getText();
+        String getMatricula = matricula.getText();
+        
+        System.out.println(getOcupacao);
+        System.out.println(getNome);
+        System.out.println(getMatricula);
+    }
+    
+    @FXML
+    void pesquisar(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("SearchBar.fxml"));
+        
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -73,41 +83,20 @@ public class RelatorioController implements Initializable {
     }
 
     @FXML
-    void downloadDiario(ActionEvent event) {
-
-    }
-
-    @FXML
-    void downloadInstantaneo(ActionEvent event) {
-
-    }
-
-    @FXML
-    void downloadMensal(ActionEvent event) {
-
-    }
-
-    @FXML
-    void downloadSemanal(ActionEvent event) {
-
-    }
-
-    @FXML
-    void exitapp(ActionEvent event) {
+    void saida(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Fechar Aplicação");
         alert.setContentText("Tem certeza que deseja fechar o App?");
         
         if(alert.showAndWait().get() == ButtonType.OK){
-            stage = (Stage) borderpane.getScene().getWindow();
+            stage = (Stage) BorderPane.getScene().getWindow();
             stage.close();
         }
     }
-
+    
     @FXML
-    void getpesquisa(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("SearchBar.fxml"));
-        
+    void voltamenu(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MenuAdm.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -118,7 +107,7 @@ public class RelatorioController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        ocupacao.getItems().addAll(ocupacoes);
+    }   
     
 }

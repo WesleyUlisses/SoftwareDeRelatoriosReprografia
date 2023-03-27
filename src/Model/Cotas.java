@@ -1,4 +1,3 @@
-
 package Model;
 
 import Dao.CotasDAO;
@@ -7,33 +6,34 @@ import java.util.Date;
 
 public class Cotas <Pessoa> {
    
-    private int cotasTotaisDoIf;
-    private double cotasIndividual;
+    private CotasTotalIf cotasTotaisDoIf = new CotasTotalIf();
+    private int cotasIndividual;
     private int cotasUsadas;
-    private String impressoesData; //
+    private Date impressoesData = new Date(); //
+    private int qtdProfessores;
+    private int qtdAlunos;
     private double cotasRestantes;
     
-    public Cotas()
+    public Cotas(CotasTotalIf cotasTotaisDoIf, int cotasIndividual, double cotasRestantes)
     {
         //Calculo de cotas individual
+        this.cotasTotaisDoIf = cotasTotaisDoIf;
+        this.cotasIndividual = cotasIndividual;
     }
     
     public Cotas(String ocupacao, CotasDAO idividuais, CotasDAO totais)//CotasDAO individuais retorna a quantidade de cotas individuais
     {
         if(ocupacao.equals("Professor")){
-            
+            this.cotasIndividual = (int) (cotasTotaisDoIf.getTotalCotas() * 0.7)/(qtdProfessores);
         }
         else if(ocupacao.equals("Estudante")){
-            
-        }
-        else{
-            
+            this.cotasIndividual = (int) (cotasTotaisDoIf.getTotalCotas() * 0.3)/(qtdAlunos);
         }
     }
     
     public int getCotasTotaisDoIf()
     {
-        return cotasTotaisDoIf;
+        return cotasTotaisDoIf.getTotalCotas();
     }
 
     public void setCotasTotaisDoIf(int cotasTotaisDoIf)
@@ -105,7 +105,7 @@ public class Cotas <Pessoa> {
         //Prints true
         if(quantidade > getCotasRestantes())
         {
-            setCotasUsadas(quantidade);
+            setCotasUsadas(this.cotasIndividual - quantidade);
         }
         else
         {

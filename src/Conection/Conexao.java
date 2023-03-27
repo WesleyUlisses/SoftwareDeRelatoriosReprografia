@@ -12,9 +12,9 @@ public class Conexao {
     Connection conn = null;
         try {
             //Estabelece conexao
-            String url = "jdbc:mysql://localhost:3306/datacenter";
+            String url = "jdbc:mysql://localhost:3306/reprografia";
             String usuario = "root";
-            String senha ="2002";
+            String senha ="1705";
             conn =  DriverManager.getConnection(url, usuario, senha);
   
         } catch (SQLException erro) {

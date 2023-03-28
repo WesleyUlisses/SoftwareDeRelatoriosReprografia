@@ -13,14 +13,18 @@ public class Cotas <Pessoa> {
     private int qtdProfessores;
     private int qtdAlunos;
     private double cotasRestantes;
-    
+
+    public Cotas(){
+
+    }
+
     public Cotas(CotasTotalIf cotasTotaisDoIf, int cotasIndividual, double cotasRestantes)
     {
         //Calculo de cotas individual
         this.cotasTotaisDoIf = cotasTotaisDoIf;
         this.cotasIndividual = cotasIndividual;
     }
-    
+    /*
     public Cotas(String ocupacao, CotasDAO idividuais, CotasDAO totais)//CotasDAO individuais retorna a quantidade de cotas individuais
     {
         if(ocupacao.equals("Professor")){
@@ -68,7 +72,7 @@ public class Cotas <Pessoa> {
     
     public int alertaCotasEsgotando()
     {   
-        /*Retorna um valor para cada intervalo de impressões*/
+        //Retorna um valor para cada intervalo de impressões
         
         //Valor em porcentagem
         double porcentagem = (this.cotasRestantes * 100) / this.cotasIndividual;
@@ -129,4 +133,6 @@ public class Cotas <Pessoa> {
                 "\nCotas Restantes: "+getCotasRestantes()+
                 "\nCotas gerais para o instituto: "+getCotasTotaisDoIf();
     }
+
+    */
 }

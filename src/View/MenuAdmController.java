@@ -4,7 +4,7 @@
  */
 package View;
 
-import Control.Cadastro;
+import View.Cadastro;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

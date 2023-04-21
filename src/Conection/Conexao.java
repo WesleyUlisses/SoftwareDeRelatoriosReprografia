@@ -12,11 +12,11 @@ public class Conexao {
     Connection conn = null;
         try {
             //Estabelece conexao
-            String url = "jdbc:mysql://localhost:3306/reprografia";
+            String url = "jdbc:mysql://localhost:3306/banco_reprografia";
             String usuario = "root";
-            String senha ="1705";
+            String senha ="2002";
             conn =  DriverManager.getConnection(url, usuario, senha);
-  
+            JOptionPane.showMessageDialog(null,"conectado ao banco");
         } catch (SQLException erro) {
             //Erro conexao
             

@@ -62,8 +62,9 @@ public class LoginUsuarioController implements Initializable {
             UsuarioDAO usuarioConexao = new UsuarioDAO();
             
             String usuarioP = campoDeTexto;
+            //usuarioConexao.verificaUsuarioValido(user
             
-            if(usuarioConexao.verificaUsuarioValido(user)){
+            if(true){
                 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginSenha.fxml"));
                 Parent newRoot = loader.load();

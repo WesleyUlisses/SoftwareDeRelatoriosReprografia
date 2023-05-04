@@ -53,6 +53,39 @@ public class UsuarioDAO {
 
     }
 
+     public void cadastrarUsuarioADM(Usuario user) {
+        
+        if (verificaUsuarioValido(user)) {
+            JOptionPane.showMessageDialog(null,"Usuario Já Cadastrado no BD, tente outro login");
+        }
+        else{
+            
+            try {
+                String sql = "INSERT INTO Usuario (login, senha,tentativasLogin, bloqueado, usuarioAdm)VALUES (?,?,?,?,?)";
+
+                PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament 
+                
+                ps.setString(1, user.getLogin());                     //Paramentros   
+                ps.setString(2, user.getSenha());
+                ps.setInt(3, user.getTentativasLogin());
+                ps.setBoolean(4, user.verificaUsuarioBloqueado());
+                ps.setBoolean(5, user.getAdm());
+                
+                ps.executeUpdate();                                       //Executa sql
+                ps.close();
+                
+                JOptionPane.showMessageDialog(null,"Usuario Adm cadastrado com sucesso");
+            } catch (SQLException e)
+            {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null,"erro ao salvar, "+e);
+            }finally
+            {
+                Conexao.closeConexao();
+            }
+        }
+
+    }
     
     //DEU RUIM NO UPDATE, VERIFICAR...
     public void bloqueiaUsuario(Usuario user) {
@@ -273,6 +306,7 @@ public class UsuarioDAO {
                 usuario.setOcupacao(rs.getString("ocupacao"));
                 usuario.setMatricula(rs.getString("matricula"));
                 usuario.setNome(rs.getString("nome"));
+                usuario.setAdm(rs.getBoolean("usuarioAdm"));
                 JOptionPane.showMessageDialog(null,usuario.getLogin()+" senha: "+usuario.getSenha());
                 return usuario;
                 
@@ -307,6 +341,7 @@ public class UsuarioDAO {
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setBloquear(rs.getBoolean("bloqueado"));
                 usuario.setId(rs.getInt("idusuario"));
+                usuario.setAdm(rs.getBoolean("usuarioAdm"));
                 /*
                 usuario.setOcupacao(rs.getString("ocupacao"));
                 usuario.setMatricula(rs.getString("matricula"));
@@ -337,6 +372,7 @@ public class UsuarioDAO {
                 Usuario user = new Usuario();                 //Cria novo produto 
                 user.setLogin(rs.getString("login"));
                 user.setSenha(rs.getString("senha"));
+                user.setAdm(rs.getBoolean("usuarioAdm"));
                 /*user.setNome(rs.getString("nome"));
                 user.setOcupacao(re.getString("ocupacao")); aguardando implantação das outras classes DAO
                  */

@@ -119,6 +119,14 @@ public class Usuario <Generics> extends Pessoa {
         return this.tentativasLogin;
     }
 
+    public void setAdm(boolean user){
+        this.usuarioADM = user;
+    }
+    
+    public boolean getAdm(){
+        return this.usuarioADM;
+    }
+    
     public String encriptar(String usuario) throws Exception{
         
         MessageDigest algorithm = MessageDigest.getInstance("MD5");

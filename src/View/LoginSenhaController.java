@@ -65,43 +65,26 @@ public class LoginSenhaController implements Initializable {
 
         Usuario retornado = lista.get(0);       //estanciar o usuario encontrado
 
-        if (retornado.getOcupacao().equalsIgnoreCase("Tecnico")) {
-            if ((user.getSenha().equals(retornado.getSenha())) && !(retornado.verificaUsuarioBloqueado())) {
+        //Usuario Adm
+        if (retornado.getAdm()) {
+
+            if (user.getSenha().equals(retornado.getSenha())) {
                 Parent root = FXMLLoader.load(getClass().getResource("MenuAdm.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
 
-            } else if (retornado.verificaUsuarioBloqueado()) {
-
-                JOptionPane.showMessageDialog(null, "Esse usuario está bloqueado, favor entre em contato com o tecnico");
-
             } else {
-                tentativasLogin++;
-                //Contagem para tentativas de senha
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Senha Incorreta");
+                alert.setContentText("favor, confira se sua senha está escrita corretamente");
 
-                retornado.setTentativasLogin(tentativasLogin);
-                //Verifica se o usuario excedeu a quantidade de tentativas de acesso
-                if (retornado.getTentativasLogin() >= 3) {
-                    //Bloqueia o usuario
-                    retornado.setBloquear(true);
-                    usuarioConexao.bloqueiaUsuario(retornado);       //Atualiza no Banco
-                    JOptionPane.showMessageDialog(null, "Ele bloqueou");
-                }
-
-                if (usuarioConexao.verificaUsuarioBloqueado(retornado)) {
-
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("Senha Incorreta");
-                    alert.setContentText("favor, confira se sua senha está escrita corretamente");
-
-                    if (alert.showAndWait().get() == ButtonType.OK) {
-                        stage = (Stage) AnchorPane.getScene().getWindow();
-                    }
+                if (alert.showAndWait().get() == ButtonType.OK) {
+                    stage = (Stage) AnchorPane.getScene().getWindow();
                 }
             }
+
         } else {
             //Se senha valide e usuario não exceder a quantidade de tentativas
             if ((user.getSenha().equals(retornado.getSenha())) && !(retornado.verificaUsuarioBloqueado())) {

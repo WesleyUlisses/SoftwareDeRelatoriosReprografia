@@ -1,0 +1,25 @@
+.header{
+    -fx-background-color: #0D6D1E;
+}
+
+.back{
+    -fx-background-color: #E6E7E8;
+}
+
+.labelServidor{
+    -fx-font-family: url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap');
+    -fx-font-weight: bold;
+    -fx-background-color: #B1B3B5;
+}
+
+
+.labelimpressoes{
+    -fx-font-family: url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap');
+    -fx-font-weight: bold;
+    -fx-background-color: #FEFEFE;
+}
+
+.cederbutton{
+    -fx-font-family: url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap');
+    -fx-background-color: #FEFEFE;
+}

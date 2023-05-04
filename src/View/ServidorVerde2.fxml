@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" styleClass="back" stylesheets="@servidorverde.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ServidorVerde2Controller">
+   <top>
+      <HBox prefHeight="63.0" prefWidth="1000.0" styleClass="header" stylesheets="@tela21.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="menuButtton" mnemonicParsing="false" onAction="#irMenu" styleClass="header" stylesheets="@tela21.css">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/iflogo2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin></Button>
+            <TextField fx:id="pesquisa" opacity="0.52" prefHeight="25.0" prefWidth="319.0" promptText="Pesquisar">
+               <HBox.margin>
+                  <Insets left="350.0" top="15.0" />
+               </HBox.margin></TextField>
+            <Button fx:id="pesquisaButton" mnemonicParsing="false" onAction="#pesquisar" styleClass="header" stylesheets="@tela21.css">
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@lupa.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.86" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin></Button>
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitApp" styleClass="header" stylesheets="@tela21.css">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/exitbutton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="220.0" top="10.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="voltarButton" mnemonicParsing="false" onAction="#voltar" styleClass="back" stylesheets="@tela21.css">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/buttonvoltar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets right="450.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="relatorioButton" mnemonicParsing="false" onAction="#relatorio" styleClass="back" stylesheets="@tela21.css">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/buttonrelatorio.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="425.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="37.0" prefWidth="510.0" styleClass="header" stylesheets="@tela21.css" text="SERVIDOR" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="24.0" prefWidth="510.0" styleClass="labelimpressoes" stylesheets="@tela21.css" text="Impressões" textFill="#727376">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Label>
+            <HBox alignment="CENTER" prefHeight="185.0" prefWidth="1000.0">
+               <children>
+                  <Button fx:id="voltarPagButton" mnemonicParsing="false" onAction="#voltarPag" prefHeight="189.0" prefWidth="30.0" styleClass="labelimpressoes" stylesheets="@tela21.css">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/seta2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Button>
+                  <VBox prefHeight="176.0" prefWidth="480.0">
+                     <children>
+                        <StackPane prefHeight="185.0" prefWidth="480.0" styleClass="labelimpressoes" stylesheets="@tela21.css">
+                           <children>
+                              <ImageView fitHeight="66.0" fitWidth="363.0" pickOnBounds="true" preserveRatio="true">
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                                 <image>
+                                    <Image url="@../Icons/painelcinza.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="QUANTIDADE">
+                                 <StackPane.margin>
+                                    <Insets right="225.0" />
+                                 </StackPane.margin>
+                              </Label>
+                              <Line endX="-99.87381744384766" endY="32.359798431396484" startX="-100.0" stroke="WHITE">
+                                 <StackPane.margin>
+                                    <Insets right="20.0" />
+                                 </StackPane.margin>
+                              </Line>
+                              <TextField fx:id="quanImpressoes" opacity="0.36" prefHeight="25.0" prefWidth="130.0" promptText="insira quantidade de cotas">
+                                 <StackPane.margin>
+                                    <Insets left="250.0" right="100.0" />
+                                 </StackPane.margin>
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </TextField>
+                           </children></StackPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="510.0" styleClass="labelimpressoes" stylesheets="@tela21.css">
+               <graphic>
+                  <Button fx:id="confirmarButton" mnemonicParsing="false" onAction="#confirmar" styleClass="header" text="Confirmar" textFill="#fdfdfd" />
+               </graphic>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets right="22.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

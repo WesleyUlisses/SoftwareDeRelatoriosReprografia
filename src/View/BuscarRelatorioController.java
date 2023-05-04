@@ -101,7 +101,6 @@ public class BuscarRelatorioController implements Initializable {
         
         if(getOcupacao.equals("Aluno")){
             //adicionar parametro de quantidade de cotas
-            if(true){
                 
                 Parent root = FXMLLoader.load(getClass().getResource("ImpreAlunoVerde.fxml"));
 
@@ -109,29 +108,10 @@ public class BuscarRelatorioController implements Initializable {
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-                
-            } else if(false){
-                
-                Parent root = FXMLLoader.load(getClass().getResource("ImpreAlunoAm.fxml"));
-
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-                
-            } else{
-                Parent root = FXMLLoader.load(getClass().getResource("ImpreAlunoVer.fxml"));
-
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            }
             
         } 
         else if(getOcupacao.equals("Professor")){
             //adicionar parametros de cotas
-            if(true){
                 
                 Parent root = FXMLLoader.load(getClass().getResource("ImpreProfVerde.fxml"));
 
@@ -140,28 +120,11 @@ public class BuscarRelatorioController implements Initializable {
                 stage.setScene(scene);
                 stage.show();
                 
-            } else if(false){
-                
-                Parent root = FXMLLoader.load(getClass().getResource("ImpreProfAm.fxml"));
-
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-                
-            } else{
-                Parent root = FXMLLoader.load(getClass().getResource("ImpreProfVer.fxml"));
-
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            }
+          
             
         } 
         else{
             // adicionar parametro de cotas
-            if(true){
                 
                 Parent root = FXMLLoader.load(getClass().getResource("ServidorVerde.fxml"));
 
@@ -170,23 +133,7 @@ public class BuscarRelatorioController implements Initializable {
                 stage.setScene(scene);
                 stage.show();
                 
-            } else if(false){
-                
-                Parent root = FXMLLoader.load(getClass().getResource("ServidorAmarelo.fxml"));
-
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-                
-            } else{
-                Parent root = FXMLLoader.load(getClass().getResource(".fxml"));
-
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            }
+          
         }
     }
     /**

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" styleClass="back" stylesheets="@servidorverde.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ServidorVerdeController">
+   <top>
+      <HBox prefHeight="61.0" prefWidth="1000.0" styleClass="header" stylesheets="@tela20.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="menuButton" mnemonicParsing="false" onAction="#irMenu" styleClass="header" stylesheets="@tela20.css">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/iflogo2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Button>
+            <TextField fx:id="pesquisa" opacity="0.5" prefHeight="25.0" prefWidth="300.0" promptText="Pesquisar">
+               <HBox.margin>
+                  <Insets left="300.0" top="15.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="pesquisaButton" mnemonicParsing="false" onAction="#pesquisar" styleClass="header" stylesheets="@tela20.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/lupa.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.82" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitApp" styleClass="header" stylesheets="@tela20.css">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/exitbutton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="275.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="510.0" styleClass="header" stylesheets="@tela20.css" text="SERVIDOR" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="250.0" top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="510.0" styleClass="labelimpressoes" stylesheets="@tela20.css" text="Impressões restantes" textFill="#727376">
+               <VBox.margin>
+                  <Insets left="250.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="177.0" prefWidth="1000.0">
+               <children>
+                  <Label fx:id="numImpressões" alignment="CENTER" prefHeight="181.0" prefWidth="480.0" styleClass="labelimpressoes" stylesheets="@tela20.css" text="000">
+                     <font>
+                        <Font size="88.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="250.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="proxButton" mnemonicParsing="false" onAction="#irProximo" prefHeight="199.0" prefWidth="30.0" styleClass="labelimpressoes" stylesheets="@tela20.css">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/seta1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="voltaButton" mnemonicParsing="false" onAction="#voltar" styleClass="back" stylesheets="@tela20.css">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/buttonvoltar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="20.0" right="450.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="relatorioButton" mnemonicParsing="false" onAction="#relatorio" styleClass="back" stylesheets="@tela20.css">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/buttonrelatorio.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="450.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

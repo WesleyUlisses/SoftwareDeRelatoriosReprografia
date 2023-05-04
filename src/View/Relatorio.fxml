@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -13,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" styleClass="back" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RelatorioController">
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" styleClass="back" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RelatorioController">
    <top>
       <VBox prefHeight="147.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
@@ -23,7 +31,7 @@
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/iflogo2.png" />
+                              <Image url="@../Icons/iflogo2.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -46,7 +54,7 @@
                      <graphic>
                         <ImageView fx:id="pesquisar" fitHeight="21.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@lupa.png" />
+                              <Image url="@../Icons/lupa.png" />
                            </image>
                            <effect>
                               <ColorAdjust brightness="0.77" />
@@ -61,7 +69,7 @@
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@exitbutton.png" />
+                              <Image url="@../Icons/exitbutton.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -82,7 +90,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@relatoriologo.png" />
+                        <Image url="@../Icons/relatoriologo.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -108,7 +116,7 @@
                      <graphic>
                         <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@downloadlogo.png" />
+                              <Image url="@../Icons/downloadlogo.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -127,7 +135,7 @@
                      <graphic>
                         <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@downloadlogo.png" />
+                              <Image url="@../Icons/downloadlogo.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -146,7 +154,7 @@
                      <graphic>
                         <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@downloadlogo.png" />
+                              <Image url="@../Icons/downloadlogo.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -165,7 +173,7 @@
                      <graphic>
                         <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@downloadlogo.png" />
+                              <Image url="@../Icons/downloadlogo.png" />
                            </image>
                         </ImageView>
                      </graphic>

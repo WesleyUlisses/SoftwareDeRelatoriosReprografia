@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class PessoaDAO {
 
@@ -19,8 +20,7 @@ public class PessoaDAO {
 
     public void Cadastrar(Pessoa pessoa) {
         try {
-            String sql = "INSERT INTO Pessoa (nome, matricula, ocupacao, cotas) "
-                    + "  VALUES (?,?,?,?)";
+            String sql = "INSERT INTO pessoa (nome, matricula, ocupacao)VALUES (?,?,?)";
 
             PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament 
 
@@ -28,8 +28,10 @@ public class PessoaDAO {
             ps.setString(2, pessoa.getMatricula());
             ps.setString(3, pessoa.getOcupacao());
             //ps.setInt(4, pessoa.getCotas()); Falta a cotasDAO
-            ps.execute();                                       //Executa sql
+            ps.executeUpdate();                                       //Executa sql
             ps.close();
+            
+            JOptionPane.showMessageDialog(null,pessoa+ " cadastrado(a) com sucesso");
 
         } catch (Exception e) {
             e.printStackTrace();

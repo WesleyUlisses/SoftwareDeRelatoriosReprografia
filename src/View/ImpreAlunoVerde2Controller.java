@@ -26,38 +26,49 @@ import javafx.stage.Stage;
  *
  * @author mafxr
  */
-public class BuscaController implements Initializable {
-
+public class ImpreAlunoVerde2Controller implements Initializable {
+    
     private Stage stage;
     private Scene scene;
     private Parent root;
-    
+
     @FXML
     private BorderPane BorderPane;
+    
+    @FXML
+    private Button confirmaButton;
+    
+    @FXML
+    private Button exitButton;
 
     @FXML
-    private Button aluno;
+    private Button menuButtton;
 
     @FXML
-    private Button exitbutton;
+    private TextField pesquisa;
 
     @FXML
-    private Button menubutton;
+    private Button pesquisaButton;
 
     @FXML
-    private Button pesquisa;
+    private TextField quanImpressoes;
 
     @FXML
-    private TextField pesquisatext;
+    private Button relatorioButton;
 
     @FXML
-    private Button professor;
+    private Button voltarButton;
 
     @FXML
-    private Button servidor;
+    private Button voltarPagButton;
+    
+    @FXML
+    void confirmar(ActionEvent event) {
+        String getCotas = quanImpressoes.getText();
+    }
 
     @FXML
-    void exitapp(ActionEvent event) {
+    void exitApp(ActionEvent event) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Fechar Aplicação");
@@ -70,7 +81,18 @@ public class BuscaController implements Initializable {
     }
 
     @FXML
-    void getPesquisa(ActionEvent event) throws IOException {
+    void irMenu(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void pesquisar(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("SearchBar.fxml"));
         
@@ -81,7 +103,17 @@ public class BuscaController implements Initializable {
     }
 
     @FXML
-    void iraluno(ActionEvent event) throws IOException {
+    void relatorio(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Relatorio.fxml"));
+        
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void voltar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("BuscarRelatorio.fxml"));
         
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -91,35 +123,15 @@ public class BuscaController implements Initializable {
     }
 
     @FXML
-    void irprofessor(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("BuscarRelatorio.fxml"));
+    void voltarPag(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ImpreAlunoVerde.fxml"));
         
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-    @FXML
-    void irservidor(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("BuscarRelatorio.fxml"));
-        
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void voltarMenu(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-        
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    
     /**
      * Initializes the controller class.
      */

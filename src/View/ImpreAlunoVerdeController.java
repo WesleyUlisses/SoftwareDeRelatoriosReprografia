@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -26,7 +27,7 @@ import javafx.stage.Stage;
  *
  * @author mafxr
  */
-public class BuscaController implements Initializable {
+public class ImpreAlunoVerdeController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -34,30 +35,33 @@ public class BuscaController implements Initializable {
     
     @FXML
     private BorderPane BorderPane;
+    
+    @FXML
+    private Button exitButton;
 
     @FXML
-    private Button aluno;
+    private Button menuButton;
 
     @FXML
-    private Button exitbutton;
+    private Label numCotas;
 
     @FXML
-    private Button menubutton;
+    private Button pesqButton;
 
     @FXML
-    private Button pesquisa;
+    private TextField pesquisa;
 
     @FXML
-    private TextField pesquisatext;
+    private Button proximaButton;
 
     @FXML
-    private Button professor;
+    private Button relatorioButton;
 
     @FXML
-    private Button servidor;
+    private Button voltarButton;
 
     @FXML
-    void exitapp(ActionEvent event) {
+    void exitApp(ActionEvent event) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Fechar Aplicação");
@@ -70,8 +74,29 @@ public class BuscaController implements Initializable {
     }
 
     @FXML
-    void getPesquisa(ActionEvent event) throws IOException {
+    void irMenu(ActionEvent event) throws IOException {
 
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void irProximaPag(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("ImpreAlunoVerde2.fxml"));
+        
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void pesquisar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SearchBar.fxml"));
         
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -81,8 +106,8 @@ public class BuscaController implements Initializable {
     }
 
     @FXML
-    void iraluno(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("BuscarRelatorio.fxml"));
+    void relatorio(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Relatorio.fxml"));
         
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -91,29 +116,8 @@ public class BuscaController implements Initializable {
     }
 
     @FXML
-    void irprofessor(ActionEvent event) throws IOException {
+    void voltar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("BuscarRelatorio.fxml"));
-        
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void irservidor(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("BuscarRelatorio.fxml"));
-        
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void voltarMenu(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

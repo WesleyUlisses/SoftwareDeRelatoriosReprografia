@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal_1/src/Control/Cadastro.fxml</file>
-            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal_1/src/Control/Menu.fxml</file>
-            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal_1/src/Control/CadastroAdm.fxml</file>
-            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal_1/src/Control/CadastroAdmController.java</file>
-            <file>file:/C:/Users/Wex/Music/Teste3/SoftwareRepografiaFinal_1/src/Control/LoginSenhaController.java</file>
+            <file>file:/C:/Users/SAMSUNG/Documents/Reprografia/SoftwareDeRelatoriosReprografia/src/View/Busca.fxml</file>
+            <file>file:/C:/Users/SAMSUNG/Documents/Reprografia/SoftwareDeRelatoriosReprografia/src/View/MenuAdmController.java</file>
+            <file>file:/C:/Users/SAMSUNG/Documents/Reprografia/SoftwareDeRelatoriosReprografia/src/View/BuscaController.java</file>
+            <file>file:/C:/Users/SAMSUNG/Documents/Reprografia/SoftwareDeRelatoriosReprografia/src/View/MenuController.java</file>
         </group>
     </open-files>
 </project-private>

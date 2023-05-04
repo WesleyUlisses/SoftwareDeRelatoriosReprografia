@@ -4,6 +4,8 @@
  */
 package View;
 
+import Dao.PessoaDAO;
+import Model.Pessoa;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +25,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -34,10 +37,10 @@ public class CadastroController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    
+
     @FXML
     private BorderPane BorderPane;
-    
+
     @FXML
     private Button cadastrobutton;
 
@@ -46,7 +49,7 @@ public class CadastroController implements Initializable {
 
     @FXML
     private Button menubutton;
-    
+
     @FXML
     private TextField matricula;
 
@@ -60,23 +63,31 @@ public class CadastroController implements Initializable {
     private Button searchbutton;
 
     private String[] ocupacoes = {"Aluno", "Professor", "Servidor"};
+
     @FXML
     void cadastrar(ActionEvent event) {
-        String getOcupacao = ocupacao.getValue();
-        String getNome = nome.getText();
-        String getMatricula = matricula.getText();
-        
-        System.out.println(getOcupacao);
-        System.out.println(getNome);
-        System.out.println(getMatricula);
+
+        if (ocupacao.getValue() != null) {
+            Pessoa pessoaCadastrada = new Pessoa();
+            pessoaCadastrada.setNome(nome.getText());
+            pessoaCadastrada.setMatricula(matricula.getText());
+            pessoaCadastrada.setOcupacao(ocupacao.getValue());
+            
+            JOptionPane.showMessageDialog(null, pessoaCadastrada + "\n Sendo cadastrada no banco");
+            PessoaDAO cadastroBanco = new PessoaDAO();
+            cadastroBanco.Cadastrar(pessoaCadastrada);
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione valores para todos os campos!");
+        }
+
     }
-    
+
     @FXML
     void pesquisar(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("SearchBar.fxml"));
-        
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -87,27 +98,28 @@ public class CadastroController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Fechar Aplicação");
         alert.setContentText("Tem certeza que deseja fechar o App?");
-        
-        if(alert.showAndWait().get() == ButtonType.OK){
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
             stage = (Stage) BorderPane.getScene().getWindow();
             stage.close();
         }
     }
-    
+
     @FXML
     void voltamenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MenuAdm.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ocupacao.getItems().addAll(ocupacoes);
-    }   
-    
+    }
+
 }

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" styleClass="back" stylesheets="@buscarrelatorio.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.BuscarRelatorioController">
+   <top>
+      <HBox prefHeight="68.0" prefWidth="1000.0" styleClass="header" stylesheets="@tela9.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="menuButton" mnemonicParsing="false" onAction="#irMenu" prefHeight="49.0" prefWidth="49.0" styleClass="header" stylesheets="@tela9.css">
+               <graphic>
+                  <ImageView fitHeight="44.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/iflogo2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="7.0" />
+               </HBox.margin>
+            </Button>
+            <TextField fx:id="pesTextfield" opacity="0.52" prefHeight="25.0" prefWidth="355.0" promptText="Pesquisar" styleClass="font" stylesheets="@tela9.css">
+               <HBox.margin>
+                  <Insets left="225.0" top="20.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="pesquisa" mnemonicParsing="false" onAction="#getpesquisa" styleClass="header" stylesheets="@tela9.css">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@lupa.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.75" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="17.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="exitbutton" mnemonicParsing="false" onAction="#exitapp" styleClass="header" stylesheets="@tela9.css">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@exitbutton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="275.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="43.0" prefWidth="181.0" styleClass="fontlabel" stylesheets="@tela9.css" text="Relatório de Cotas">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="40.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="124.0" prefWidth="1000.0">
+               <children>
+                  <Label prefHeight="52.0" prefWidth="124.0" styleClass="fontlabel" stylesheets="@tela9.css" text="Selecionar ocupação:" />
+                  <ChoiceBox fx:id="ocupacaoBox" prefHeight="51.0" prefWidth="302.0" styleClass="menubutton" stylesheets="@tela9.css" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="1000.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="81.0" text="Buscar:" textFill="#0d6d1e">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@lupaverde.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <TextField fx:id="getNome" opacity="0.62" prefHeight="31.0" prefWidth="354.0" promptText="Nome completo ou Matrícula">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <Button fx:id="proximo" mnemonicParsing="false" onAction="#irProximo" styleClass="menubutton" stylesheets="@tela9.css" text="Próximo" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="650.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

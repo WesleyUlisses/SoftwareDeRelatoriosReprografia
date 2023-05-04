@@ -1,0 +1,23 @@
+.back{
+    -fx-background-color: #E6E7E8;
+}
+
+.header{
+    -fx-background-color: #0D6D1E;
+}
+
+.font{
+    -fx-font-family: url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap');
+    -fx-font-style: italic;
+}
+
+.fontlabel{
+    -fx-font-family: url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap');
+    -fx-font-weight: bold;
+}
+
+.menubutton{
+    -fx-font-family: url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap');
+    -fx-font-weight: bold;
+    -fx-background-color: #0D6D1E;
+}

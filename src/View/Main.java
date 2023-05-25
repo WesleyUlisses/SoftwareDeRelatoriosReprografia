@@ -37,7 +37,16 @@ public class Main extends Application {
      */
     public static void main(String[] args) throws Exception 
     {
-       
+        Usuario user = new Usuario();
+        user.setAdm(true);
+        user.setLogin("master");
+        user.setNome("master");
+        user.setSenha("12345678");
+        user.setTentativasLogin(0);
+        
+        
+        UsuarioDAO users = new UsuarioDAO();
+        users.cadastrarUsuario(user);
         launch(args);
     }
     

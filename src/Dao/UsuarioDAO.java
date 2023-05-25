@@ -1,6 +1,7 @@
 package Dao;
 
 import Conection.Conexao;
+import Model.Pessoa;
 import Model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,14 +29,22 @@ public class UsuarioDAO {
         else{
             
             try {
-                String sql = "INSERT INTO Usuario (login, senha,tentativasLogin, bloqueado)VALUES (?,?,?,?)";
-
+                String sql = "INSERT INTO usuario_pessoa (login, senha,tentativasLogin, bloqueado, adm, cotas_idcotas)VALUES (?,?,?,?,?,?)";
+                CotasDAO cota = new CotasDAO();
+                cota.cadastrarCota(); //Criando a cota que será registrada no usuario
+                
                 PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament 
                 
                 ps.setString(1, user.getLogin());                     //Paramentros   
                 ps.setString(2, user.getSenha());
                 ps.setInt(3, user.getTentativasLogin());
                 ps.setBoolean(4, user.verificaUsuarioBloqueado());
+                ps.setBoolean(5, user.getAdm());
+                ps.setInt(6, cota.ultimaCota());
+                
+                
+                
+                
                 
                 ps.executeUpdate();                                       //Executa sql
                 ps.close();
@@ -44,7 +53,7 @@ public class UsuarioDAO {
             } catch (SQLException e)
             {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(null,"erro ao salvar, "+e);
+                JOptionPane.showMessageDialog(null,"erro ao cadastrar, "+e);
             }finally
             {
                 Conexao.closeConexao();
@@ -53,37 +62,34 @@ public class UsuarioDAO {
 
     }
 
-     public void cadastrarUsuarioADM(Usuario user) {
+    public void cadastrarPessoa(Pessoa pessoa) {
         
-        if (verificaUsuarioValido(user)) {
-            JOptionPane.showMessageDialog(null,"Usuario Já Cadastrado no BD, tente outro login");
-        }
-        else{
-            
+       
             try {
-                String sql = "INSERT INTO Usuario (login, senha,tentativasLogin, bloqueado, usuarioAdm)VALUES (?,?,?,?,?)";
-
-                PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament 
+                String sql = "INSERT INTO usuario_pessoa (nome, matricula, ocupacao, cotas_idcotas)VALUES (?,?,?,?)";
+                CotasDAO cota = new CotasDAO();
+                cota.cadastrarCota(); //Criando a cota que será registrada no usuario
                 
-                ps.setString(1, user.getLogin());                     //Paramentros   
-                ps.setString(2, user.getSenha());
-                ps.setInt(3, user.getTentativasLogin());
-                ps.setBoolean(4, user.verificaUsuarioBloqueado());
-                ps.setBoolean(5, user.getAdm());
+                PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament 
+
+                ps.setString(1, pessoa.getNome());                     //Paramentros   
+                ps.setString(2, pessoa.getMatricula());
+                ps.setString(3, pessoa.getOcupacao());
+                ps.setInt(4, cota.ultimaCota());
                 
                 ps.executeUpdate();                                       //Executa sql
                 ps.close();
                 
-                JOptionPane.showMessageDialog(null,"Usuario Adm cadastrado com sucesso");
+                JOptionPane.showMessageDialog(null,"Pessoa cadastrada com sucesso");
             } catch (SQLException e)
             {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(null,"erro ao salvar, "+e);
+                JOptionPane.showMessageDialog(null,"erro ao cadastrar, "+e);
             }finally
             {
                 Conexao.closeConexao();
             }
-        }
+  
 
     }
     
@@ -92,7 +98,7 @@ public class UsuarioDAO {
 
         
         try {
-            String sql = "UPDATE Usuario SET bloqueado=?"
+            String sql = "UPDATE usuario_pessoa SET bloqueado=?"
                     + "  WHERE idusuario=?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);   //objeto Stament 
@@ -121,7 +127,7 @@ public class UsuarioDAO {
     public boolean verificaUsuarioValido(Usuario user) {
 
         try {
-            String sql = "SELECT * FROM Usuario WHERE login= ?";
+            String sql = "SELECT * FROM usuario_pessoa WHERE login= ?";
             PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
             ps.setString(1, user.getLogin());                   //Paramentros          
             ResultSet rs = ps.executeQuery();                     //Executa sql
@@ -151,7 +157,7 @@ public class UsuarioDAO {
     public boolean verificaUsuarioBloqueado(Usuario user) {
 
         try {
-            String sql = "SELECT * FROM Usuario WHERE bloqueado= ?";
+            String sql = "SELECT * FROM usuario_pessoa WHERE bloqueado= ?";
             PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
             
             ps.setBoolean(1, user.verificaUsuarioBloqueado());                   //Paramentros          
@@ -184,7 +190,7 @@ public class UsuarioDAO {
 
         try {
             
-            String sql = "SELECT * FROM Usuario WHERE senha= ?";
+            String sql = "SELECT * FROM usuario_pessoa WHERE senha= ?";
             PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
             ps.setString(1, user.getSenha());                   //Paramentros          
             ResultSet rs = ps.executeQuery();                     //Executa sql     
@@ -214,7 +220,7 @@ public class UsuarioDAO {
     public void Alterar(Usuario user) {
 
         try {
-            String sql = "UPDATE Usuario SET  login=?, senha=?, tentativasLogin=?, bloqueado=? WHERE idusuario=?";
+            String sql = "UPDATE usuario_pessoa SET  login=?, senha=?, tentativasLogin=?, bloqueado=? WHERE idusuario=?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);   //objeto Stament 
 
@@ -245,7 +251,7 @@ public class UsuarioDAO {
     public void Excluir(Usuario user) {
 
         try {
-            String sql = "DELETE from Usuario WHERE login= ?";
+            String sql = "DELETE from usuario_pessoa WHERE login= ?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament              
             ps.setString(1, user.getLogin());          //Paramentros   
@@ -260,10 +266,10 @@ public class UsuarioDAO {
     /**
      * Consulta um Usuario pela matricula no Banco
      */
-    public Usuario ConsultarPorMatricula(String matricula) {
+    public Usuario ConsultarUsuarioPorMatricula(String matricula) {
 
         try {
-            String sql = "SELECT * FROM Usuario WHERE matricula= ?";
+            String sql = "SELECT * FROM usuario_pessoa WHERE matricula= ?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
             ps.setString(1, matricula);                   //Paramentros          
@@ -276,7 +282,40 @@ public class UsuarioDAO {
                 usuario.setOcupacao(rs.getString("ocupacao"));
                 usuario.setMatricula(rs.getString("matricula"));
                 usuario.setNome(rs.getString("nome"));
+                usuario.setAdm(rs.getBoolean("adm"));
+                usuario.setBloquear(rs.getBoolean("bloqueado"));
+                usuario.setIdCotas(rs.getInt("cotas_idcotas"));
+                usuario.setIdPessoa(rs.getInt("idusuario_pessoa"));
+                
                 return usuario;
+            } else {
+                return null;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Pessoa ConsultarPessoaPorMatricula(String matricula) {
+
+        try {
+            String sql = "SELECT * FROM usuario_pessoa WHERE matricula= ?";
+
+            PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
+            ps.setString(1, matricula);                   //Paramentros          
+            ResultSet rs = ps.executeQuery();                     //Executa sql
+
+            Pessoa pessoa = new Pessoa();                     //Cria Usuario a retornar
+            if (rs.next()) {
+
+                pessoa.setNome(rs.getString("nome"));
+                pessoa.setOcupacao(rs.getString("ocupacao"));
+                pessoa.setMatricula(rs.getString("matricula"));
+                pessoa.setIdPessoa(rs.getInt("idusuario_pessoa"));
+                
+                return pessoa;
             } else {
                 return null;
             }
@@ -293,7 +332,7 @@ public class UsuarioDAO {
     public Usuario ConsultarPorLogin(String user) {
 
         try {
-            String sql = "SELECT * FROM Usuario WHERE login= ?";
+            String sql = "SELECT * FROM usuario_pessoa WHERE login= ?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
             ps.setString(1, user);                   //Paramentros          
@@ -303,10 +342,14 @@ public class UsuarioDAO {
             if (rs.next()) {
 
                 usuario.setLogin(rs.getString("login"));
+                usuario.setSenha(rs.getString("senha"));
                 usuario.setOcupacao(rs.getString("ocupacao"));
                 usuario.setMatricula(rs.getString("matricula"));
                 usuario.setNome(rs.getString("nome"));
-                usuario.setAdm(rs.getBoolean("usuarioAdm"));
+                usuario.setAdm(rs.getBoolean("adm"));
+                usuario.setBloquear(rs.getBoolean("bloqueado"));
+                usuario.setIdCotas(rs.getInt("cotas_idcotas"));
+                
                 JOptionPane.showMessageDialog(null,usuario.getLogin()+" senha: "+usuario.getSenha());
                 return usuario;
                 
@@ -324,43 +367,11 @@ public class UsuarioDAO {
      * Consulta Usuario pelo nome no Banco e retorna uma lista com usuarios
      * compativeis
      */
-    public List<Usuario> ConsultarPorLogin(Usuario user) {
-
-        try {
-            String sql = "SELECT * FROM Usuario WHERE login like '%" + user.getLogin() + "%'";
-
-            PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament           
-            ResultSet rs = ps.executeQuery();                  //Executa sql
-
-            List<Usuario> listaProd = new ArrayList<Usuario>();  // Criar lista a retornar
-
-            while (rs.next()) {
-
-                Usuario usuario = new Usuario();
-                usuario.setLogin(rs.getString("login"));
-                usuario.setSenha(rs.getString("senha"));
-                usuario.setBloquear(rs.getBoolean("bloqueado"));
-                usuario.setId(rs.getInt("idusuario"));
-                usuario.setAdm(rs.getBoolean("usuarioAdm"));
-                /*
-                usuario.setOcupacao(rs.getString("ocupacao"));
-                usuario.setMatricula(rs.getString("matricula"));
-                usuario.setNome(rs.getString("nome"));*/ //Buscar da tabela pessoa
-                listaProd.add(usuario);                          // add Usuario na lista 
-            }
-
-            return listaProd;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
+  
     public List<Usuario> ConsultarTodos() {
 
         try {
-            String sql = "SELECT * FROM Usuario";
+            String sql = "SELECT * FROM usuario_pessoa";
 
             PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament         
             ResultSet rs = ps.executeQuery();                  //Executa sql
@@ -369,17 +380,50 @@ public class UsuarioDAO {
 
             while (rs.next()) {
 
-                Usuario user = new Usuario();                 //Cria novo produto 
-                user.setLogin(rs.getString("login"));
-                user.setSenha(rs.getString("senha"));
-                user.setAdm(rs.getBoolean("usuarioAdm"));
-                /*user.setNome(rs.getString("nome"));
-                user.setOcupacao(re.getString("ocupacao")); aguardando implantação das outras classes DAO
-                 */
-                listaUsuario.add(user);                          // add Usuario na lista 
+                Usuario usuario = new Usuario();                 //Cria novo produto 
+                usuario.setLogin(rs.getString("login"));
+                usuario.setOcupacao(rs.getString("ocupacao"));
+                usuario.setMatricula(rs.getString("matricula"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setAdm(rs.getBoolean("adm"));
+                usuario.setBloquear(rs.getBoolean("bloqueado"));
+                usuario.setIdCotas(rs.getInt("cotas_idcotas"));
+                
+                listaUsuario.add(usuario);                          // add Usuario na lista 
             }
 
             return listaUsuario;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public List<Pessoa> ConsultarPessoas() {
+
+        try {
+            String sql = "SELECT * FROM usuario_pessoa";
+
+            PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament         
+            ResultSet rs = ps.executeQuery();                  //Executa sql
+
+            List<Pessoa> listaPessoa = new ArrayList<Pessoa>();  // Criar lista a retornar
+
+            while (rs.next()) {
+
+                Pessoa pessoa = new Pessoa();                 //Cria novo produto 
+                
+                pessoa.setNome(rs.getString("nome"));
+                pessoa.setMatricula(rs.getString("matricula"));
+                pessoa.setOcupacao(rs.getString("ocupacao"));
+                pessoa.setIdPessoa(rs.getInt("idusuario_pessoa"));
+                pessoa.setIdCotas(rs.getInt("cotas_idcotas"));
+                
+                listaPessoa.add(pessoa);                          // add Usuario na lista 
+            }
+
+            return listaPessoa;
 
         } catch (SQLException e) {
             e.printStackTrace();

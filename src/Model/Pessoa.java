@@ -2,11 +2,29 @@ package Model;
 
 
 public class  Pessoa {
+
     
+    private int idPessoa;
     private String nome;
     private String matricula;
     private String ocupacao;
+    private int idCotas;
     private Cotas cota;
+    
+    /**
+     * @return the cota
+     */
+    public Cotas getCota() {
+        return cota;
+    }
+
+    /**
+     * @param cota the cota to set
+     */
+    public void setCota(Cotas cota) {
+        this.cota = cota;
+    }
+    
     
     //Method Construct
     public Pessoa()
@@ -23,20 +41,27 @@ public class  Pessoa {
         this.nome = nome;
         this.matricula = matricula;
         this.ocupacao = ocupacao;
-        
-        //New Pessoa are a professor
-        if(ocupacao.equals("Professor"))
-        {
-            this.cota = new Cotas();            
-        }
-        else
-        {
-            this.cota = new Cotas();
-        }
-        
+        this.cota = new Cotas();
+    }
+  
+    //Methods Gets and Sets
+  
+    public int getIdCotas() {
+        return idCotas;
+    }
+
+    public void setIdCotas(int idCotas) {
+        this.idCotas = idCotas;
     }
     
-    //Methods Gets and Sets
+    public int getIdPessoa(){
+        return this.idPessoa;
+    }
+    
+    public void setIdPessoa(int id){
+        this.idPessoa = id;
+    }
+    
     public String getNome()
     {
         return nome;

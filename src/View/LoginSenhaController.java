@@ -61,11 +61,10 @@ public class LoginSenhaController implements Initializable {
         user.setSenha(campoDeTexto);
 
         UsuarioDAO usuarioConexao = new UsuarioDAO();
-        List<Usuario> lista = usuarioConexao.ConsultarPorLogin(user);       //Encontrar usuaria em lista, no banco
+        Usuario retornado  = usuarioConexao.ConsultarPorLogin(user.getLogin());       //Retorna para memoria o usuario com todas suas credenciais
 
-        Usuario retornado = lista.get(0);       //estanciar o usuario encontrado
 
-        //Usuario Adm
+        //Testa se o usuario retornado é adm
         if (retornado.getAdm()) {
 
             if (user.getSenha().equals(retornado.getSenha())) {
@@ -86,7 +85,7 @@ public class LoginSenhaController implements Initializable {
             }
 
         } else {
-            //Se senha valide e usuario não exceder a quantidade de tentativas
+            //Se o usuario não for adm
             if ((user.getSenha().equals(retornado.getSenha())) && !(retornado.verificaUsuarioBloqueado())) {
                 Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

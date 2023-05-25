@@ -17,6 +17,8 @@ public class Usuario <Generics> extends Pessoa {
     private int tentativasLogin = 0;
     private int idUsuario;
     private boolean usuarioADM = false;
+    private int idCotas;
+    
     public Usuario(){
         this.setNome(null);
         this.setMatricula(null);
@@ -33,6 +35,14 @@ public class Usuario <Generics> extends Pessoa {
         this.senha = senha;
         this.setOcupacao("Tecnico");
 
+    }
+    
+       public int getIdCotas() {
+        return idCotas;
+    }
+
+    public void setIdCotas(int idCotas) {
+        this.idCotas = idCotas;
     }
     
     public void setUsuarioADM(boolean a){

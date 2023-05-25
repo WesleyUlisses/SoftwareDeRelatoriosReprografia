@@ -2,72 +2,70 @@ package Dao;
 
 import Conection.Conexao;
 import Model.Cotas;
+import Model.Impressoes;
+import Model.Pessoa;
 import Model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 
-public class CotasTotalIFDAO {
-    
-    /*
-    public class CotasDAO {
+public class ImpressoesDAO {
     private Connection conexao;
 
-    public CotasDAO() {
+    public ImpressoesDAO() {
         this.conexao = new Conexao().getConexao();
     }
     
-    //Calculo de cotas.
-    
-    //Cadastrar cotas
-    public void cadastrarCotasTotalIf(CotasTotalIf cotas) {
+     public void registrarImpressoes(Impressoes impressao) {
             
             try 
             {
-                String sql = "INSERT INTO Usuario (login, senha,tentativasLogin, bloqueado)VALUES (?,?,?,?)";
+                String sql = "INSERT INTO impressao (data, quantidade)VALUES (?,?)";
 
                 PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament 
-                
-                ps.setString(1, user.getLogin());                     //Paramentros   
-                ps.setString(2, user.getSenha());
-                ps.setInt(3, user.getTentativasLogin());
-                ps.setBoolean(4, user.verificaUsuarioBloqueado());
+                //Registro de impressões é autoincremental
+                ps.setDate(1, impressao.getData());
+                ps.setInt(2, impressao.getQuantidade());
                 
                 ps.executeUpdate();                                       //Executa sql
                 ps.close();
                 
-                JOptionPane.showMessageDialog(null,"Usuario cadastrado com sucesso");
+                JOptionPane.showMessageDialog(null,"Registro de impressão efetuado com sucesso!");
             } catch (SQLException e)
             {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(null,"erro ao salvar, "+e);
+                JOptionPane.showMessageDialog(null,"erro ao registrar, "+e);
             }finally
             {
                 Conexao.closeConexao();
             }
     }
-    
-    public Usuario ConsultarCotasTotalIf(String user) {
+     
+     
+    public Impressoes ConsultarImpressoes(int idImpressoes) {
 
         try {
-            String sql = "SELECT * FROM Usuario WHERE login= ?";
+            String sql = "SELECT * FROM impressao WHERE idimpressao= ?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
-            ps.setString(1, user);                   //Paramentros          
+            ps.setInt(1, idImpressoes);                   //Paramentros          
+            
             ResultSet rs = ps.executeQuery();                     //Executa sql
 
-            Usuario usuario = new Usuario();                     //Cria Usuario a retornar
+            Impressoes impressao = new Impressoes();                     //Cria Usuario a retornar
             if (rs.next()) {
 
-                usuario.setLogin(rs.getString("login"));
-                usuario.setOcupacao(rs.getString("ocupacao"));
-                usuario.setMatricula(rs.getString("matricula"));
-                usuario.setNome(rs.getString("nome"));
-                JOptionPane.showMessageDialog(null,usuario.getLogin()+" senha: "+usuario.getSenha());
-                return usuario;
+                impressao.setData(rs.getDate("data"));
+                impressao.setQuantidade(rs.getInt("quantidade"));
+                impressao.setIdImpressoes(rs.getInt("idimpressao"));
+                
+                return impressao;
                 
             } else {
                 return null;
@@ -79,49 +77,35 @@ public class CotasTotalIFDAO {
         }
     }
     
-    
-    public void Alterar(CotasTotalIf cotas) {
+    public List<Impressoes> ConsultarListaDeImpressoes(int idCota) {
 
         try {
-            String sql = "UPDATE Usuario SET  login=?, senha=?, tentativasLogin=?, bloqueado=? WHERE idusuario=?";
+            String sql = "SELECT * FROM impressao WHERE idcotas= ?";
 
-            PreparedStatement ps = conexao.prepareStatement(sql);   //objeto Stament 
+            PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
+            ps.setInt(1, idCota);                   //Paramentros          
+            
+            ResultSet rs = ps.executeQuery();                     //Executa sql
 
-            ps.setString(1, user.getLogin());                     //Paramentros          
-            ps.setString(2, user.getSenha());
-            ps.setInt(3, user.getTentativasLogin());
-            ps.setBoolean(4, user.verificaUsuarioBloqueado());
-            ps.setInt(5, user.getId());
-            
-            JOptionPane.showMessageDialog(null, ps.toString());
-            ps.executeUpdate();                                       //Executa sql
-            ps.close();
-            
-            JOptionPane.showMessageDialog(null,"Cadastro Atualazado");
-        }  catch (SQLException e)
-            {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null,"erro ao salvar, "+e);
-            }finally
-            {
-                Conexao.closeConexao();
+            List<Impressoes> listaImpressoes = new ArrayList<Impressoes>();  // Criar lista a retornar
+
+            while (rs.next()) {
+
+                Impressoes impressao = new Impressoes();                 //Cria novo produto 
+                
+                impressao.setData(rs.getDate("data"));
+                impressao.setQuantidade(rs.getInt("quantidade"));
+                impressao.setIdImpressoes(rs.getInt("idimpressao"));
+                
+                listaImpressoes.add(impressao);                          // add Usuario na lista 
             }
-    }
 
-
-    public void Excluir(CotasTotalIf cotas) {
-
-        try {
-            String sql = "DELETE from Usuario WHERE login= ?";
-
-            PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament              
-            ps.setString(1, user.getLogin());          //Paramentros   
-            ps.execute();                                      //Executa sql
-            ps.close();
+            return listaImpressoes;
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
     }
-*/
+    
 }

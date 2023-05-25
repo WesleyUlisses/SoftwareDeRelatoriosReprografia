@@ -4,6 +4,7 @@
  */
 package View;
 
+import Arquivos.Arquivo;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -98,6 +99,7 @@ public class BuscarRelatorioController implements Initializable {
         
         String getOcupacao = ocupacaoBox.getValue();
         String pegaNome = getNome.getText();
+
         
         if(getOcupacao.equals("Aluno")){
             //adicionar parametro de quantidade de cotas

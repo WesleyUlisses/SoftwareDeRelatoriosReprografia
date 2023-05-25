@@ -20,14 +20,16 @@ public class PessoaDAO {
 
     public void Cadastrar(Pessoa pessoa) {
         try {
-            String sql = "INSERT INTO pessoa (nome, matricula, ocupacao)VALUES (?,?,?)";
-
+            String sql = "INSERT INTO usuario_pessoa (nome, matricula, ocupacao, cotas_idcotas)VALUES (?,?,?,?)";
+            
+            CotasDAO cota = new CotasDAO();
+            cota.cadastrarCota(); //Criando a cota que será registrada no usuario
             PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament 
 
             ps.setString(1, pessoa.getNome());                     //Paramentros          
             ps.setString(2, pessoa.getMatricula());
             ps.setString(3, pessoa.getOcupacao());
-            //ps.setInt(4, pessoa.getCotas()); Falta a cotasDAO
+            ps.setInt(4, cota.ultimaCota());
             ps.executeUpdate();                                       //Executa sql
             ps.close();
             
@@ -172,4 +174,5 @@ public class PessoaDAO {
             return null;
         }
     }
+    
 }

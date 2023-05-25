@@ -11,28 +11,21 @@ import javax.swing.JOptionPane;
 
 
 public class CotasDAO {
-    /*private Connection conexao;
+    
+    private Connection conexao;
 
     public CotasDAO() {
         this.conexao = new Conexao().getConexao();
     }
     
-    //Calculo de cotas.
-    
-    //Cadastrar cotas
-    public void cadastrarUsuario(Cotas cotas) {
-            
-            try 
-            {
-                String sql = "INSERT INTO Usuario (login, senha,tentativasLogin, bloqueado)VALUES (?,?,?,?)";
+
+    public void cadastrarCota() {
+        
+            try {
+                String sql = "INSERT INTO cotas ()VALUES ()";
 
                 PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament 
-                
-                ps.setString(1, user.getLogin());                     //Paramentros   
-                ps.setString(2, user.getSenha());
-                ps.setInt(3, user.getTentativasLogin());
-                ps.setBoolean(4, user.verificaUsuarioBloqueado());
-                
+
                 ps.executeUpdate();                                       //Executa sql
                 ps.close();
                 
@@ -40,31 +33,32 @@ public class CotasDAO {
             } catch (SQLException e)
             {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(null,"erro ao salvar, "+e);
+                JOptionPane.showMessageDialog(null,"erro ao cadastrar, "+e);
             }finally
             {
                 Conexao.closeConexao();
             }
+        
+
     }
     
-    public Usuario ConsultarPorLogin(String user) {
+    
+    public Cotas ConsultarId(int id) {
 
         try {
-            String sql = "SELECT * FROM Usuario WHERE login= ?";
+            String sql = "SELECT * FROM usuario_pessoa WHERE cotas_idcotas= ?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
-            ps.setString(1, user);                   //Paramentros          
+            ps.setInt(1, id);                   //Paramentros          
             ResultSet rs = ps.executeQuery();                     //Executa sql
 
-            Usuario usuario = new Usuario();                     //Cria Usuario a retornar
+            Cotas cota = new Cotas();                     //Cria Usuario a retornar
             if (rs.next()) {
 
-                usuario.setLogin(rs.getString("login"));
-                usuario.setOcupacao(rs.getString("ocupacao"));
-                usuario.setMatricula(rs.getString("matricula"));
-                usuario.setNome(rs.getString("nome"));
-                JOptionPane.showMessageDialog(null,usuario.getLogin()+" senha: "+usuario.getSenha());
-                return usuario;
+                cota.setIdCotas(rs.getInt("cotas_idcotas"));
+                cota.setIdImpressoes(rs.getInt("cotas_has_impressao_impressao_idimpressao"));
+ 
+                return cota;
                 
             } else {
                 return null;
@@ -75,51 +69,30 @@ public class CotasDAO {
             return null;
         }
     }
-    
-    
-    public void Alterar(Cotas cotas) {
+ 
+    public int ultimaCota() {
 
         try {
-            String sql = "UPDATE Usuario SET  login=?, senha=?, tentativasLogin=?, bloqueado=? WHERE idusuario=?";
+            String sql = "SELECT * FROM cotas ORDER BY idcotas DESC LIMIT1";
 
-            PreparedStatement ps = conexao.prepareStatement(sql);   //objeto Stament 
+            PreparedStatement ps = conexao.prepareStatement(sql);  //obejeto Stament 
+    
+            ResultSet rs = ps.executeQuery();                     //Executa sql
 
-            ps.setString(1, user.getLogin());                     //Paramentros          
-            ps.setString(2, user.getSenha());
-            ps.setInt(3, user.getTentativasLogin());
-            ps.setBoolean(4, user.verificaUsuarioBloqueado());
-            ps.setInt(5, user.getId());
-            
-            JOptionPane.showMessageDialog(null, ps.toString());
-            ps.executeUpdate();                                       //Executa sql
-            ps.close();
-            
-            JOptionPane.showMessageDialog(null,"Cadastro Atualazado");
-        }  catch (SQLException e)
-            {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null,"erro ao salvar, "+e);
-            }finally
-            {
-                Conexao.closeConexao();
+            int idUltimaCota;                     //Cria Usuario a retornar
+            if (rs.next()) {
+
+                idUltimaCota = (rs.getInt("idcotas"));
+
+                return idUltimaCota;
+                
+            } else {
+                return 0;
             }
-    }
-
-    
-    public void Excluir(Cotas cotas) {
-
-        try {
-            String sql = "DELETE from Usuario WHERE login= ?";
-
-            PreparedStatement ps = conexao.prepareStatement(sql);   //obejeto Stament              
-            ps.setString(1, user.getLogin());          //Paramentros   
-            ps.execute();                                      //Executa sql
-            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return 0;
         }
     }
-    
-    */
 }

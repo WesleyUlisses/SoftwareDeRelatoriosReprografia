@@ -4,6 +4,7 @@
  */
 package View;
 
+import Control.PessoaController;
 import Dao.PessoaDAO;
 import Model.Pessoa;
 import java.io.IOException;
@@ -73,9 +74,9 @@ public class CadastroController implements Initializable {
             pessoaCadastrada.setMatricula(matricula.getText());
             pessoaCadastrada.setOcupacao(ocupacao.getValue());
             
-            JOptionPane.showMessageDialog(null, pessoaCadastrada + "\n Sendo cadastrada no banco");
-            PessoaDAO cadastroBanco = new PessoaDAO();
-            cadastroBanco.Cadastrar(pessoaCadastrada);
+            PessoaController cadastroBanco = new PessoaController();
+
+            cadastroBanco.CadastrarPessoaNoBanco(pessoaCadastrada);
         }else{
             JOptionPane.showMessageDialog(null, "Selecione valores para todos os campos!");
         }

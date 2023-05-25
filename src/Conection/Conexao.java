@@ -12,7 +12,7 @@ public class Conexao {
     Connection conn = null;
         try {
             //Estabelece conexao
-            String url = "jdbc:mysql://localhost:3306/banco_reprografia";
+            String url = "jdbc:mysql://localhost:3306/print_counter";
             String usuario = "root";
             String senha ="2002";
             conn =  DriverManager.getConnection(url, usuario, senha);

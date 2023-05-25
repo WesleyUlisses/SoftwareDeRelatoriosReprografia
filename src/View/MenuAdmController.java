@@ -77,7 +77,7 @@ public class MenuAdmController implements Initializable {
         
         Cadastro x = new Cadastro();
         x.setVisible(true);
- /*
+        /*
         Parent root = FXMLLoader.load(getClass().getResource("CadastroAdm.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
